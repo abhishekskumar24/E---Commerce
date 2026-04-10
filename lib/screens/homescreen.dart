@@ -103,7 +103,7 @@ class _HomescreenState extends State<Homescreen> {
               ], options: CarouselOptions(autoPlay: true,autoPlayInterval: Duration(seconds: 8),height: 140)),
             ],
           ),
-          SizedBox(height: ScreenResulation.blockHeight *2,),
+          SizedBox(height: ScreenResulation.blockHeight *2.1,),
 
           Padding(
             padding: const EdgeInsets.all(8.0),
