@@ -1,0 +1,172 @@
+import 'package:first_app/common/screen_resulation.dart';
+import 'package:first_app/screens/homescreen.dart';
+import 'package:flutter/material.dart';
+
+class Login extends StatefulWidget {
+  const Login({super.key});
+
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  final emailcontroller = TextEditingController();
+  final passwordcontroller = TextEditingController();
+  final GlobalKey<FormState> loginkey = GlobalKey<FormState>();
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Stack(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                fit: BoxFit.cover,
+                image: AssetImage("assets/background.jpeg"),
+              ),
+            ),
+          ),
+          SingleChildScrollView(
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: ScreenResulation.blockWidth * 10,
+              ),
+              child: Form(
+                key: loginkey,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(height: ScreenResulation.blockHeight * 15),
+
+                    Container(child: Image.asset("assets/profile_images/person.png")),
+                    SizedBox(height: ScreenResulation.blockHeight * 5),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Hello",
+                          style: TextStyle(
+                            fontSize: ScreenResulation.blockWidth * 5.5,
+                            color: Colors.blue,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+
+                        Text(
+                          " Again!",
+                          style: TextStyle(
+                            fontSize: ScreenResulation.blockWidth * 5.5,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Text(
+                      "Log in and enjoy your shopping",
+                      style: TextStyle(color: Colors.grey),
+                    ),
+                    SizedBox(height: ScreenResulation.blockHeight * 2),
+                    TextFormField(
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return "Please enter email";
+                        }
+                        return null;
+                      },
+                      keyboardType: TextInputType.emailAddress,
+                      controller: emailcontroller,
+                      decoration: InputDecoration(
+                        labelText: "Email address",
+                        prefixIcon: Icon(Icons.email),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: ScreenResulation.blockHeight * 2),
+                    TextFormField(
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return "Please enter password";
+                        }
+                        return null;
+                      },
+                      keyboardType: TextInputType.text,
+                      controller: passwordcontroller,
+                      decoration: InputDecoration(
+                        labelText: "Password",
+                        prefixIcon: Icon(Icons.password),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        TextButton(
+                          onPressed: () {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Center(child:
+                                 Text("On Prograss")),
+                                backgroundColor: Colors.blue,
+                                duration: Duration(seconds: 3),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                  side: BorderSide(color: Colors.black),
+                                ),
+                                behavior: SnackBarBehavior.floating,
+                                margin: EdgeInsets.all(5),
+                              ),
+                            );
+                          },
+                          child: Text(
+                            "Forgot Password?",
+                            style: TextStyle(color: Colors.black),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: ScreenResulation.blockHeight * 2),
+                    SizedBox(
+                      height: ScreenResulation.blockHeight * 5,
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          if (loginkey.currentState?.validate() ?? false) {
+                            Navigator.of(context).pushAndRemoveUntil(
+                              MaterialPageRoute(
+                                builder: (context) => Homescreen(),
+                              ),
+                              (route) => false,
+                            );
+                          }
+                        },
+                        child: Text(
+                          "Log In",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: ScreenResulation.blockHeight * 1.8,
+                          ),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.blue,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
