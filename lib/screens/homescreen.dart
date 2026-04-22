@@ -2,6 +2,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:first_app/common/carousal_screen.dart';
 import 'package:first_app/common/categorie_card.dart';
+import 'package:first_app/common/product_card.dart';
 import 'package:first_app/common/screen_resulation.dart';
 import 'package:flutter/material.dart';
 
@@ -144,11 +145,11 @@ class _HomescreenState extends State<Homescreen> {
             ),
           ),
           
-             Expanded(
-               child: Padding(
-                 padding: const EdgeInsets.symmetric(horizontal: 15),
+             Padding(
+               padding: const EdgeInsets.symmetric(horizontal: 15),
+               child: SizedBox(height: 100,
                  child: ListView(
-                
+                               
                   scrollDirection: Axis.horizontal,
                   children: [
                     ProductCategorie(title: "Fruits", imagepath: "assets/categorie_icon/fruits.png",backgroundColor: const Color.fromARGB(255, 134, 182, 219),ontap: () {
@@ -162,22 +163,53 @@ class _HomescreenState extends State<Homescreen> {
                     },),
                     ProductCategorie(title: "Oils", imagepath: "assets/categorie_icon/palm-oil.png",
                     backgroundColor: const Color.fromARGB(255, 239, 170, 170),ontap: () {},),
-
+                              
                     ProductCategorie(title: "Grocery", imagepath: "assets/categorie_icon/shopping-bag.png",
                     backgroundColor: const Color.fromARGB(255, 177, 197, 231),ontap: () {},
                     ),
-
+                              
                     ProductCategorie(title: "Drinks", imagepath: "assets/categorie_icon/drink.png",
                     backgroundColor: const Color.fromARGB(255, 180, 202, 155),ontap: () {
                      
                   },
                     ),
                     
-
+                              
                   ],
                              ),
                ),
              ),
+             SizedBox(height: ScreenResulation.blockHeight *2,),
+             
+             Padding(
+               padding: const EdgeInsets.symmetric(horizontal: 20),
+               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Fresh Products",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  ),
+                  TextButton(onPressed: () {}, child: Text("See all"))
+                ],
+               ),
+             ),
+             
+             Padding(
+               padding: const EdgeInsets.symmetric(horizontal: 20),
+               child: Row(
+                children: [
+               ProductCard(imagepath: "assets/products/Tomatto.jpg", productname: "Tomatto", productprice: "25/bunch", productquantity: "1 Bunch", onTap: () {}),
+               
+               SizedBox(width: 40,),
+               
+                ProductCard(imagepath: "assets/products/Tomatto.jpg", productname: "Tomatto", productprice: "25/bunch", productquantity: "1 Bunch", onTap: () {})
+                ],
+               ),
+             ),
+
             
           
           

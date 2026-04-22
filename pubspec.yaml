@@ -79,6 +79,8 @@ flutter:
     - assets/categorie_icon/junk-food.png
     - assets/categorie_icon/fruits.png
     - assets/categorie_icon/drink.png
+    #products
+    - assets/products/Tomatto.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

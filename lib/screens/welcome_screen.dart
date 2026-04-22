@@ -39,7 +39,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     width: 300,
                     child: Image.asset("assets/App_logo/logo.jpeg"),
                   ),
-                  SizedBox(height: 20),
+                   SizedBox(height: 20),
 
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
