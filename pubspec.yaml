@@ -41,6 +41,13 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: ^0.14.4
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/App_logo/App_logo.jpg" 
+
 
 
   # The "flutter_lints" package below contains a set of recommended lints to
@@ -64,7 +71,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
   #logo
-    - assets/App_logo/logo.jpeg
+    - assets/App_logo/App_logo.jpg
 
     - assets/background.jpeg
     - assets/fruitsicon.png

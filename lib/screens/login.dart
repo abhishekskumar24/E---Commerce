@@ -1,4 +1,5 @@
 import 'package:first_app/common/screen_resulation.dart';
+import 'package:first_app/common/themecolors.dart';
 import 'package:first_app/screens/homescreen.dart';
 import 'package:flutter/material.dart';
 
@@ -17,16 +18,8 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Stack(
+      body: Column(
         children: [
-          Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                fit: BoxFit.cover,
-                image: AssetImage("assets/background.jpeg"),
-              ),
-            ),
-          ),
           SingleChildScrollView(
             child: Padding(
               padding: EdgeInsets.symmetric(
@@ -38,23 +31,23 @@ class _LoginState extends State<Login> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(height: ScreenResulation.blockHeight * 15),
-
-                    Container(child: Image.asset("assets/profile_images/person.png")),
+                    
+                    Container(child: Image.asset("assets/App_logo/App_logo.jpg")),
                     SizedBox(height: ScreenResulation.blockHeight * 5),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          "Hello",
+                          "Welcome",
                           style: TextStyle(
                             fontSize: ScreenResulation.blockWidth * 5.5,
-                            color: Colors.blue,
+                            color: ThemeColors.maincolor,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-
+                    
                         Text(
-                          " Again!",
+                          " Back!",
                           style: TextStyle(
                             fontSize: ScreenResulation.blockWidth * 5.5,
                             color: Colors.black,
@@ -65,9 +58,9 @@ class _LoginState extends State<Login> {
                     ),
                     Text(
                       "Log in and enjoy your shopping",
-                      style: TextStyle(color: Colors.grey),
+                      style: TextStyle(color: ThemeColors.text1color),
                     ),
-                    SizedBox(height: ScreenResulation.blockHeight * 2),
+                    SizedBox(height: ScreenResulation.blockHeight * 2.1),
                     TextFormField(
                       validator: (value) {
                         if (value == null || value.isEmpty) {
@@ -125,7 +118,7 @@ class _LoginState extends State<Login> {
                           },
                           child: Text(
                             "Forgot Password?",
-                            style: TextStyle(color: Colors.black),
+                            style: TextStyle(color: ThemeColors.maincolor),
                           ),
                         ),
                       ],
@@ -153,7 +146,7 @@ class _LoginState extends State<Login> {
                           ),
                         ),
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blue,
+                          backgroundColor: ThemeColors.maincolor,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                           ),

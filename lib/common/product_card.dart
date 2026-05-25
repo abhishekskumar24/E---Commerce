@@ -13,76 +13,83 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Container(
-      width: 160,
-      padding: EdgeInsets.all(10),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            height: 105,
-            
-            child: Image.asset(
-              imagepath,
+    return  Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        width: 160,
+        padding: EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          boxShadow: [BoxShadow(color: Colors.grey.withOpacity(0.2),blurRadius: 12,spreadRadius: 4,offset: Offset(5, 0))],
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
               height: 80,
-              fit: BoxFit.cover,
-            
+              
+              child: Center(
+                child: Image.asset(
+                  imagepath,
+                  fit: BoxFit.cover,
+                
+                ),
+              ),
             ),
-          ),
-          SizedBox(height: 5,),
-
-          Text(productname,
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 14,
-          ),
-          ),
-
-          SizedBox(height: 5,),
-
-          Row(children: [
-
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            SizedBox(height: 5,),
+      
+            Text(productname,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 14,
+            ),
+            ),
+      
+            SizedBox(height: 5,),
+      
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                 Text(productprice,
-                 style: TextStyle(
-                  color: Colors.green,
-                  fontWeight: FontWeight.bold
-                 ),
-          ),
-
-           SizedBox(height: 2,),
-
-          Text(productquantity,
-          style: TextStyle(
-            color: const Color.fromARGB(255, 54, 53, 53),
-            fontSize: 12,
-          ),
-          ),
-
-           SizedBox(height: 8,),
-
-              ],
+              
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                   Text(productprice,
+                   style: TextStyle(
+                    color: Colors.green,
+                    fontWeight: FontWeight.bold
+                   ),
             ),
-            ElevatedButton(onPressed: onTap, child: Text("+",style: TextStyle(color: Colors.white,fontSize: 20),
+      
+             SizedBox(height: 2,),
+      
+            Text(productquantity,
+            style: TextStyle(
+              color: const Color.fromARGB(255, 54, 53, 53),
+              fontSize: 12,
             ),
-            style: ElevatedButton.styleFrom( 
-              shape: CircleBorder(),
-              backgroundColor: Colors.green),
             ),
-          ],),
-         
-
-
-
-        ],
+      
+             SizedBox(height: 8,),
+      
+                ],
+              ),
+              ElevatedButton(onPressed: onTap, child: Text("+",style: TextStyle(color: Colors.white,fontSize: 20),
+              ),
+              style: ElevatedButton.styleFrom( 
+                shape: CircleBorder(),
+                backgroundColor: Colors.green),
+              ),
+            ],),
+           
+      
+      
+      
+          ],
+        ),
+      
       ),
-
     );
   }
 }

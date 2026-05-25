@@ -1,4 +1,5 @@
 import 'package:first_app/common/screen_resulation.dart';
+import 'package:first_app/common/themecolors.dart';
 import 'package:first_app/screens/login.dart';
 import 'package:flutter/material.dart';
 
@@ -17,16 +18,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
 
-      body: Stack(
+      body: Column(
         children: [
-          Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                fit: BoxFit.cover,
-                image: AssetImage("assets/background.jpeg"),
-              ),
-            ),
-          ),
           SingleChildScrollView(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 60),
@@ -37,18 +30,18 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   Container(
                     height: 250,
                     width: 300,
-                    child: Image.asset("assets/App_logo/logo.jpeg"),
+                    child: Image.asset("assets/App_logo/App_logo.jpg"),
                   ),
                    SizedBox(height: 20),
-
+                    
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
                         "Hello",
                         style: TextStyle(
-                          color: Colors.blue,
-                          fontSize: ScreenResulation.blockHeight * 2.5,
+                          color: ThemeColors.maincolor,
+                          fontSize: ScreenResulation.blockHeight * 3,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -56,7 +49,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       Text(
                         "Again",
                         style: TextStyle(
-                          color: Colors.black,
+                          color: ThemeColors.textcolor,
                           fontSize: ScreenResulation.blockHeight * 2.5,
                           fontWeight: FontWeight.bold,
                         ),
@@ -65,9 +58,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   ),
                   SizedBox(height: 15),
                   Text(
-                    "Let's Complete Your Task",
+                    "Let's get ready to eat healthy and stay fit with our fresh fruits app!",
                     style: TextStyle(
-                      color: Colors.grey,
+                      color: ThemeColors.text1color,
                       fontSize: ScreenResulation.blockHeight * 2.0,
                       fontWeight: FontWeight.bold,
                     ),
@@ -79,7 +72,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     child: ElevatedButton(
                       style: 
                       ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blue,
+                        backgroundColor: ThemeColors.maincolor,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
